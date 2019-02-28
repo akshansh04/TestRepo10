@@ -19,6 +19,12 @@ steps:
 - task: AzureResourceGroupDeployment@2
   displayName: 'Azure Deployment:Start action on ankhokha-update'
   inputs:
-    azureSubscription: 'aksriv-autoSPN'
+    azureSubscription: 'aksriv-autoSPNPostFFON'
     action: Start
     resourceGroupName: 'ankhokha-update'
+    
+- task: JenkinsDownloadArtifacts@1
+  displayName: 'Download artifacts produced by FreeStyleProject'
+  inputs:
+    jenkinsServerConnection: jenkins-new
+    jobName: FreeStyleProject
